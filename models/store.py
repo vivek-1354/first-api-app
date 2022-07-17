@@ -1,11 +1,14 @@
 from db import db
 
+from model.item import ItemModel
 
 class StoreModel(db.Model):
     __tablename__ ='stores'
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
+    
+    db.relationship(ItemModel)
     
     def __init__(self,name):
         self.name = name
