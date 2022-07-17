@@ -6,6 +6,7 @@ from flask_jwt import JWT
 from security import authenticate,identity 
 from resources.user import UserResiter,Userlist,User
 from resources.item import Item, ItemList 
+from resources.store import Store, StoreList
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
@@ -23,12 +24,16 @@ to allow to authentication of the user"""
 
 jwt = JWT(app, authenticate, identity)   # Here Jwt create a endpoint called (/auth)
 
-api.add_resource(Item, '/item/<string:name>')           #http://127.0.0.1:5000/item/name
-api.add_resource(ItemList, '/items')                    #http://127.0.0.1:5000/items
+api.add_resource(Item, '/item/<string:name>')          #http://127.0.0.1:5000/item/name
+api.add_resource(ItemList, '/items')                   #http://127.0.0.1:5000/items
+
 api.add_resource(UserResiter, '/resiter')              #http://127.0.0.1:5000/resiter
-api.add_resource(Userlist ,'/users')
-api.add_resource(User ,'/user/<int:id>')
-# api.add_resource(Database, '/tables')               #http://127.0.0.1:5000/resiter
+
+api.add_resource(Userlist ,'/users')                   #http://127.0.0.1:5000/users
+api.add_resource(User ,'/user/<int:id>')               #http://127.0.0.1:5000/user/id
+
+api.add_resource(Store, '/store/<string:name>')        #http://127.0.0.1:5000/store/name
+api.add_resource(Store, '/stores')                     #http://127.0.0.1:5000/stores
 
 
 
