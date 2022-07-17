@@ -33,7 +33,7 @@ api.add_resource(Userlist ,'/users')                   #http://127.0.0.1:5000/us
 api.add_resource(User ,'/user/<int:id>')               #http://127.0.0.1:5000/user/id
 
 api.add_resource(Store, '/store/<string:name>')        #http://127.0.0.1:5000/store/name
-api.add_resource(Store, '/stores')                     #http://127.0.0.1:5000/stores
+api.add_resource(StoreList, '/stores')                     #http://127.0.0.1:5000/stores
 
 
 
