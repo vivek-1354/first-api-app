@@ -14,7 +14,7 @@ class StoreModel(db.Model):
         self.name = name
 
     def json(self):
-        return {"id":self.id,"name":self.name,"price":self.price}
+        return {"id":self.id,"name":self.name}
 
         # This function authorization if item name exits in database data.sqlite if not exits return none
     @classmethod
